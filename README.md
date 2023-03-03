@@ -3,6 +3,6 @@
     <img alt="profile" src="https://github.com/ermi2021/portfolio-site/blob/master/src/images/me_white.jpg" width="100" />
   </a>
 </p>
-<h1 align="center">
-  Portfolio Site done using Gatsby
-</h1>
+<h4 align="center">
+ My Portfolio Site done using Gatsby
+</h4>
