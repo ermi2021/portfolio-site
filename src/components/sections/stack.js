@@ -4,8 +4,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { srConfig } from '@config';
-import sr from '@utils';
-import { Icon } from '@icons';
+import sr from '@utils/sr';
+
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledskillsSection = styled.section`
