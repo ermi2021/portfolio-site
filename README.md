@@ -4,5 +4,5 @@
   </a>
 </p>
 <h4 align="center">
- My Portfolio Site done using Gatsby
+ My Personal Site done using Gatsby 
 </h4>
