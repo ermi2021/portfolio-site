@@ -5,9 +5,7 @@ module.exports = {
     description: 'Ermiyas Zeleke is a full stack web & mobile app developer who focuses on solving business problems',
     siteUrl: "https://www.ermidev.com",
   },
-  flags:{
-    DEV_SSR: true
-  },
+  
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",

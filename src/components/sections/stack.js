@@ -3,10 +3,10 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { srConfig } from '../../config';
-import sr from '../../utils/sr';
-import { Icon } from '../icons';
-import { usePrefersReducedMotion } from '../../hooks';
+import { srConfig } from '@config';
+import sr from '@utils';
+import { Icon } from '@icons';
+import { usePrefersReducedMotion } from '@hooks';
 
 const StyledskillsSection = styled.section`
  max-width: 900px;
