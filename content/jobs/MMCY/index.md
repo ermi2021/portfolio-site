@@ -4,7 +4,7 @@ date: '2017-12-21'
 title: 'Full Stack developer'
 company: 'MMCY TECH'
 location: 'Addis Ababa, Ehiopia'
-range: 'May 2022 - August 2022'
+range: 'September 2021 - February 2023'
 url: 'https://www.MMCYTECH.com'
 ---
 

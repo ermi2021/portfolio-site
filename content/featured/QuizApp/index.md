@@ -1,5 +1,5 @@
 ---
-date: '3'
+date: '4'
 title: 'Quiz App'
 cover: './demo.png'
 github: 'https://github.com/ermi2021/Quiz'
