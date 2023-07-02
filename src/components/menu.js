@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
-
+import resume from '../utils/resume.pdf';
 const StyledMenu = styled.div`
   display: none;
 
@@ -98,7 +98,7 @@ const StyledSidebar = styled.aside`
     width: min(75vw, 400px);
     height: 100vh;
     outline: 0;
-    background-color: var(--light-navy);
+    background-color: #152820;
     box-shadow: -10px 0px 30px -15px var(--navy-shadow);
     z-index: 9;
     transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
@@ -266,7 +266,7 @@ const Menu = () => {
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
+            <a href={resume} className="resume-link" download>
               Resume
             </a>
           </nav>
