@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { srConfig, email } from '@config';
-import sr from '@utils/sr';
-import { usePrefersReducedMotion } from '@hooks';
+import { srConfig, email } from '@config'
+import sr from '@utils/sr'
+import { usePrefersReducedMotion } from '@hooks'
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -66,23 +66,30 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hi! I'm Ermiyas, and I love coding, concentrating on web and
-              mobile app development. My interest in programming started back in
-              2017 when I enrolled in college to earn my Bachler in Information
-              Systems.
+              Hi! I'm Ermiyas, a passionate web and mobile app developer with a
+              focus on creating engaging user experiences. My programming
+              journey started during my Bachelor's degree in Information Systems
+              back in 2017. Since then, I've dived deep into various
+              technologies and frameworks, mastering Object-Oriented Programming
+              (OOP) with JavaScript.
             </p>
             <p>
-              My programming journey has taken me from learning the fundamentals
-              of Object-Oriented Programming (OOP) with Javascript, to
-              developing full stack applications using popular frameworks such
-              as Angular, React and Vue. Along the way I have also explored a
-              wide variety of backend tools such as Django and .NET, further
-              expanding my skill set with each technology I learn.
+              My expertise lies in mobile app development, and I excel in using
+              React Native, a powerful framework that allows me to build
+              high-quality cross-platform applications efficiently.
             </p>
             <p>
-              Fast-forward to today, and i've had the privilege's of working
-              with experienced developers and participating in coding hackathons
-              as a developer.
+              Moreover, I'm well-versed in web development, and I'm proficient
+              in React, Vue, and Angular, three popular frameworks used to
+              create dynamic and interactive web applications.
+            </p>
+            <p>
+              I'm constantly seeking new challenges and opportunities to expand
+              my knowledge and push the boundaries of what I can create with
+              code. If you're looking for a dedicated developer who can bring
+              your ideas to life with elegance and efficiency, I'd love to
+              collaborate with you. Together, we can create exceptional web and
+              mobile applications that leave a lasting impact.
             </p>
           </div>
         </StyledText>

@@ -5,45 +5,24 @@ import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
-
+import icon from '../../images/icon.png';
+import {Swiper,SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 import { usePrefersReducedMotion } from '@hooks';
 
+
+// import required modules
+import { EffectCoverflow, Pagination,Autoplay } from 'swiper/modules';
+
 const StyledskillsSection = styled.section`
- max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
   }
 
-  .archive-link {
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-    &:after {
-      bottom: 0.1em;
-    }
-  }
 
-  .skills-grid {
-    ${({ theme }) => theme.mixins.resetList};
-    display: grid;
-    grid-template-columns: repeat(4, minmax(min-content, max-content));
-    grid-gap: 35px;
-    position: relative;
-    margin-top: 15px;
-    cursor:pointer;
-
-    @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-  }
-
-  .more-button {
-    ${({ theme }) => theme.mixins.button};
-    margin: 80px auto 0;
-  }
 `;
 
 const Styledskill = styled.li`
@@ -207,120 +186,63 @@ const Styledskill = styled.li`
     }
   }
 `;
+const StyledSkillImg = styled.img`
+  height: 200px;
+  width: 200px;
+
+`;
 
 const Stack = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      skills: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/content/skills/" }
-          frontmatter: { showInSkills: { ne: false } }
-        }
-        sort: { fields: [frontmatter___order], order: ASC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              image {
-                childImageSharp {
-                  gatsbyImageData(width: 100, height:100 placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
-              
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
-  const [showMore, setShowMore] = useState(false);
-  const revealTitle = useRef(null);
-  const revealArchiveLink = useRef(null);
-  const revealskills = useRef([]);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    sr.reveal(revealTitle.current, srConfig());
-    sr.reveal(revealArchiveLink.current, srConfig());
-    revealskills.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
-
-  const GRID_LIMIT = 8;
-  const skills = data.skills.edges.filter(({ node }) => node);
-  const firstEight = skills.slice(0, GRID_LIMIT);
-  const skillsToShow = showMore ? skills : firstEight;
-
-  const skillInner = node => {
-    const { frontmatter, html } = node;
-    const { image, title } = frontmatter;
-    const logo = getImage(image);
-    return (
-      <div className="skill-inner">
-        <header>
-
-          <GatsbyImage image={logo} alt={title} className="img" />
-          <h3 className="skill-description">
-
-            {title}
-
-          </h3>
-
-
-        </header>
-
-
-      </div>
-    );
-  };
-
   return (
-   
-    <StyledskillsSection id="skills">
-      <h2 ref={revealTitle} className="numbered-heading">Few Technologies from my stack</h2>
-   
-      <ul className="skills-grid">
-        {prefersReducedMotion ? (
-          <>
-            {skillsToShow &&
-              skillsToShow.map(({ node }, i) => (
-                <Styledskill key={i}>{skillInner(node)}</Styledskill>
-              ))}
-          </>
-        ) : (
-          <TransitionGroup component={null}>
-            {skillsToShow &&
-              skillsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}>
-                  <Styledskill
-                    key={i}
-                    ref={el => (revealskills.current[i] = el)}
-                    style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
-                    }}>
-                    {skillInner(node)}
-                  </Styledskill>
-                </CSSTransition>
-              ))}
-          </TransitionGroup>
-        )}
-      </ul>
-
-      <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
-      </button>
+    <StyledskillsSection>
+      <h2>Skills</h2>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={4}
+      effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+     
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[EffectCoverflow, Pagination,Autoplay]}
+        className="mySwiper"
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+    
+    >
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 1" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 2" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 3" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 1" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 2" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StyledSkillImg src={icon} alt="Image 3" />
+      </SwiperSlide>
+      {/* Add more SwiperSlides with images */}
+    </Swiper>
     </StyledskillsSection>
-
   );
 };
 
