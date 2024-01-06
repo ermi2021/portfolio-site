@@ -73,15 +73,10 @@ const About = () => {
               technologies and frameworks, mastering Object-Oriented Programming
               (OOP) with JavaScript.
             </p>
+          
             <p>
-              My expertise lies in mobile app development, and I excel in using
-              React Native, a powerful framework that allows me to build
-              high-quality cross-platform applications efficiently.
-            </p>
-            <p>
-              Moreover, I'm well-versed in web development, and I'm proficient
-              in React, Vue, and Angular, three popular frameworks used to
-              create dynamic and interactive web applications.
+              Moreover, I'm well-versed in web and mobile application development, and I'm proficient
+              in Javascript, TypeScript, React, React Native Vue, and Angular.
             </p>
             <p>
               I'm constantly seeking new challenges and opportunities to expand

@@ -1,5 +1,5 @@
 ---
-date: '2'
+date: '3'
 title: 'Matrix Theme'
 cover: './matrix.png'
 github: 'https://github.com/ermi2021/Matrix-Theme-Site'

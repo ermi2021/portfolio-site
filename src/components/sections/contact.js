@@ -61,8 +61,9 @@ const Contact = () => {
 
       <h2 className="title">Get In Touch</h2>
 
-      <p className="descc">
-      I'm currently looking for new opportunities, my inbox is alway open
+      <p style={{textAlign:"center", marginLeft:'50px'}}>
+      I'm currently looking for new opportunities
+         my inbox is alway open
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
